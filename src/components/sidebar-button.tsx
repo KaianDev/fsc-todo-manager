@@ -4,7 +4,7 @@ interface Props {
   variant: 'unselected' | 'selected'
 }
 
-const SideBarButton = ({ href, children, variant }: Props) => {
+const SidebarButton = ({ href, children, variant }: Props) => {
   const getVariantClasses = () => {
     if (variant === 'unselected') return 'text-[#35383E]'
     if (variant === 'selected') return 'bg-[#E6F7F8] text-[#00ADB5]'
@@ -20,4 +20,4 @@ const SideBarButton = ({ href, children, variant }: Props) => {
   )
 }
 
-export default SideBarButton
+export default SidebarButton

@@ -1,9 +1,9 @@
-import SideBar from './components/side-bar'
+import Sidebar from './components/sidebar'
 
 const App = () => {
   return (
     <div>
-      <SideBar />
+      <Sidebar />
     </div>
   )
 }

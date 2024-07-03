@@ -1,8 +1,8 @@
-import SideBarButton from './side-bar-button'
+import SidebarButton from './sidebar-button'
 import HomeIcon from '../assets/icons/home.svg'
 import TasksIcon from '../assets/icons/tasks.svg'
 
-const SideBar = () => {
+const Sidebar = () => {
   return (
     <aside className="h-screen w-64 bg-white">
       <div className="space-y-4 px-8 py-6">
@@ -15,17 +15,17 @@ const SideBar = () => {
         </p>
       </div>
       <div className="flex flex-col gap-2 p-2">
-        <SideBarButton href="#" variant="unselected">
+        <SidebarButton href="#" variant="unselected">
           <HomeIcon />
           Início
-        </SideBarButton>
-        <SideBarButton href="#" variant="selected">
+        </SidebarButton>
+        <SidebarButton href="#" variant="selected">
           <TasksIcon />
           Minhas Tarefas
-        </SideBarButton>
+        </SidebarButton>
       </div>
     </aside>
   )
 }
 
-export default SideBar
+export default Sidebar
