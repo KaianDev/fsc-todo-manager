@@ -13,7 +13,7 @@ const SideBarButton = ({ href, children, variant }: Props) => {
   return (
     <a
       href={href}
-      className={`space-x-2 rounded-lg px-6 py-3 text-sm font-semibold ${getVariantClasses()}`}
+      className={`flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold ${getVariantClasses()}`}
     >
       {children}
     </a>
