@@ -1,6 +1,7 @@
 import { Task } from '../types/task'
 import CheckIcon from '../assets/icons/check.svg'
-import Loader from '../assets/icons/loader.svg'
+import LoaderIcon from '../assets/icons/loader.svg'
+import DetailsIcon from '../assets/icons/details.svg'
 
 interface Props {
   task: Task
@@ -25,18 +26,30 @@ const TaskItem = ({ task }: Props) => {
     >
       <div className="flex gap-3">
         <label
-          className={`flex size-6 items-center justify-center rounded-md text-white ${getVariantClassesToLabel()}`}
+          className={`flex size-6 cursor-pointer items-center justify-center rounded-md text-white ${getVariantClassesToLabel()}`}
         >
           {task.status === 'completed' && <CheckIcon />}
           {task.status === 'started' && (
             <div className="animate-spin">
-              <Loader />
+              <LoaderIcon />
             </div>
           )}
-          <input type="checkbox" className="sr-only" />
+          <input
+            type="checkbox"
+            checked={task.status === 'completed'}
+            className="sr-only"
+          />
         </label>
 
         <p>{task.title}</p>
+      </div>
+      <div>
+        <a
+          href="#"
+          className="flex size-6 items-center justify-center text-[#9A9C9F] transition hover:scale-110"
+        >
+          <DetailsIcon />
+        </a>
       </div>
     </div>
   )
