@@ -2,13 +2,15 @@ import { Task } from '../types/task'
 import CheckIcon from '../assets/icons/check.svg'
 import LoaderIcon from '../assets/icons/loader.svg'
 import DetailsIcon from '../assets/icons/details.svg'
+import TrashIcon from '../assets/icons/trash.svg'
 
 interface Props {
   task: Task
   onStatusChange: (taskId: number) => void
+  onDelete: (taskId: number) => void
 }
 
-const TaskItem = ({ task, onStatusChange }: Props) => {
+const TaskItem = ({ task, onStatusChange, onDelete }: Props) => {
   const getVariantClasses = () => {
     if (task.status === 'completed') return 'bg-[#00ADB5]/10'
     if (task.status === 'started') return 'bg-[#FFAA04]/10'
@@ -45,7 +47,13 @@ const TaskItem = ({ task, onStatusChange }: Props) => {
 
         <p>{task.title}</p>
       </div>
-      <div>
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => onDelete(task.id)}
+          className="flex size-6 items-center justify-center text-[#9A9C9F] transition hover:scale-110"
+        >
+          <TrashIcon />
+        </button>
         <a
           href="#"
           className="flex size-6 items-center justify-center text-[#9A9C9F] transition hover:scale-110"

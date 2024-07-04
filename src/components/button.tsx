@@ -3,7 +3,12 @@ interface Props extends React.ComponentProps<'button'> {
   variant?: 'primary' | 'ghost'
 }
 
-const Button = ({ children, variant = 'primary', ...rest }: Props) => {
+const Button = ({
+  children,
+  variant = 'primary',
+  className,
+  ...rest
+}: Props) => {
   const getVariantClasses = () => {
     if (variant === 'primary')
       return 'bg-[#00ADB5] text-white hover:bg-[#00ADB5]/80'
@@ -13,7 +18,7 @@ const Button = ({ children, variant = 'primary', ...rest }: Props) => {
 
   return (
     <button
-      className={`flex items-center gap-1 rounded-md px-3 py-1 text-xs font-semibold transition-colors ${getVariantClasses()}`}
+      className={`flex items-center gap-1 rounded-md px-3 py-1 text-xs font-semibold transition-colors ${getVariantClasses()} ${className}`}
       {...rest}
     >
       {children}

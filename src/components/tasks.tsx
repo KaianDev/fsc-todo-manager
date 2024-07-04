@@ -17,7 +17,7 @@ const Tasks = () => {
   const afternoonTasks = tasks.filter((task) => task.period === 'afternoon')
   const nightTasks = tasks.filter((task) => task.period === 'night')
 
-  const handleChangeStatus = (taskId: number) => {
+  const handleChangeStatusTaskItem = (taskId: number) => {
     setTasks((prevTasks) =>
       prevTasks.map((prevTask) => {
         if (prevTask.id !== taskId) {
@@ -34,6 +34,12 @@ const Tasks = () => {
         }
         return prevTask
       }),
+    )
+  }
+
+  const handleDeleteTaskItem = (taskId: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.filter((prevTask) => prevTask.id !== taskId),
     )
   }
 
@@ -65,7 +71,8 @@ const Tasks = () => {
               <TaskItem
                 key={task.id}
                 task={task}
-                onStatusChange={handleChangeStatus}
+                onStatusChange={handleChangeStatusTaskItem}
+                onDelete={handleDeleteTaskItem}
               />
             ))}
           </div>
@@ -78,7 +85,8 @@ const Tasks = () => {
               <TaskItem
                 key={task.id}
                 task={task}
-                onStatusChange={handleChangeStatus}
+                onStatusChange={handleChangeStatusTaskItem}
+                onDelete={handleDeleteTaskItem}
               />
             ))}
           </div>
@@ -91,7 +99,8 @@ const Tasks = () => {
               <TaskItem
                 key={task.id}
                 task={task}
-                onStatusChange={handleChangeStatus}
+                onStatusChange={handleChangeStatusTaskItem}
+                onDelete={handleDeleteTaskItem}
               />
             ))}
           </div>
