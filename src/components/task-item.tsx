@@ -5,9 +5,10 @@ import DetailsIcon from '../assets/icons/details.svg'
 
 interface Props {
   task: Task
+  onStatusChange: (taskId: number) => void
 }
 
-const TaskItem = ({ task }: Props) => {
+const TaskItem = ({ task, onStatusChange }: Props) => {
   const getVariantClasses = () => {
     if (task.status === 'completed') return 'bg-[#00ADB5]/10'
     if (task.status === 'started') return 'bg-[#FFAA04]/10'
@@ -22,7 +23,7 @@ const TaskItem = ({ task }: Props) => {
 
   return (
     <div
-      className={`flex items-center justify-between rounded-lg p-3 pr-4 ${getVariantClasses()}`}
+      className={`flex items-center justify-between rounded-lg p-3 pr-4 transition duration-150 ${getVariantClasses()}`}
     >
       <div className="flex gap-3">
         <label
@@ -36,6 +37,7 @@ const TaskItem = ({ task }: Props) => {
           )}
           <input
             type="checkbox"
+            onChange={() => onStatusChange(task.id)}
             checked={task.status === 'completed'}
             className="sr-only"
           />

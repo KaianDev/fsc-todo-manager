@@ -11,11 +11,31 @@ import TaskItem from './task-item'
 import TaskSeparator from './task-separator'
 
 const Tasks = () => {
-  const [tasks] = useState<Task[]>(TASKS)
+  const [tasks, setTasks] = useState<Task[]>(TASKS)
 
   const morningTasks = tasks.filter((task) => task.period === 'morning')
   const afternoonTasks = tasks.filter((task) => task.period === 'afternoon')
   const nightTasks = tasks.filter((task) => task.period === 'night')
+
+  const handleChangeStatus = (taskId: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((prevTask) => {
+        if (prevTask.id !== taskId) {
+          return prevTask
+        }
+        if (prevTask.status === 'completed') {
+          return { ...prevTask, status: 'not_started' }
+        }
+        if (prevTask.status === 'not_started') {
+          return { ...prevTask, status: 'started' }
+        }
+        if (prevTask.status === 'started') {
+          return { ...prevTask, status: 'completed' }
+        }
+        return prevTask
+      }),
+    )
+  }
 
   return (
     <main className="flex-1 space-y-6 px-8 py-16">
@@ -42,7 +62,11 @@ const Tasks = () => {
           <TaskSeparator title="Manhã" icon={<SunIcon />} />
           <div className="space-y-3">
             {morningTasks.map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                onStatusChange={handleChangeStatus}
+              />
             ))}
           </div>
         </div>
@@ -51,7 +75,11 @@ const Tasks = () => {
           <TaskSeparator title="Tarde" icon={<CloudSunIcon />} />
           <div className="space-y-3">
             {afternoonTasks.map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                onStatusChange={handleChangeStatus}
+              />
             ))}
           </div>
         </div>
@@ -60,7 +88,11 @@ const Tasks = () => {
           <TaskSeparator title="Noite" icon={<MoonIcon />} />
           <div className="space-y-3">
             {nightTasks.map((task) => (
-              <TaskItem key={task.id} task={task} />
+              <TaskItem
+                key={task.id}
+                task={task}
+                onStatusChange={handleChangeStatus}
+              />
             ))}
           </div>
         </div>
