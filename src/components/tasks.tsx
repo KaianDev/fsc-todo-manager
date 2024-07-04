@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import Button from './button'
-import TrashIcon from '../assets/icons/trash.svg'
-import AddIcon from '../assets/icons/add.svg'
-import SunIcon from '../assets/icons/sun.svg'
-import MoonIcon from '../assets/icons/moon.svg'
-import CloudSunIcon from '../assets/icons/cloud-sun.svg'
+import {
+  TrashIcon,
+  AddIcon,
+  SunIcon,
+  MoonIcon,
+  CloudSunIcon,
+} from '../assets/icons'
 import type { Task } from '../types/task'
 import { TASKS } from '../constants/tasks'
 import TaskItem from './task-item'

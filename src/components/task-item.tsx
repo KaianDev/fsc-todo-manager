@@ -1,8 +1,5 @@
 import { Task } from '../types/task'
-import CheckIcon from '../assets/icons/check.svg'
-import LoaderIcon from '../assets/icons/loader.svg'
-import DetailsIcon from '../assets/icons/details.svg'
-import TrashIcon from '../assets/icons/trash.svg'
+import { CheckIcon, LoaderIcon, DetailsIcon, TrashIcon } from '../assets/icons'
 
 interface Props {
   task: Task
