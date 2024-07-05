@@ -1,5 +1,5 @@
-import SidebarButton from './sidebar-button'
 import { HomeIcon, TasksIcon } from '../assets/icons'
+import SidebarButton from './sidebar-button'
 
 const Sidebar = () => {
   return (

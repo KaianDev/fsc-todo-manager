@@ -1,5 +1,5 @@
+import { CheckIcon, DetailsIcon, LoaderIcon, TrashIcon } from '../assets/icons'
 import { Task } from '../types/task'
-import { CheckIcon, LoaderIcon, DetailsIcon, TrashIcon } from '../assets/icons'
 
 interface Props {
   task: Task
