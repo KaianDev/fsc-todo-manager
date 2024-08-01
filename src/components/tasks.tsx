@@ -70,7 +70,7 @@ const Tasks = () => {
             <AddIcon />
           </Button>
 
-          <AddTaskDialog isOpen={addDialogIsOpen} />
+          <AddTaskDialog isOpen={addDialogIsOpen} setIsOpen={setIsOpenDialog} />
         </div>
       </div>
 
